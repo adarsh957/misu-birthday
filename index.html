@@ -1,36 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Happy Birthday Misu ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #fff0f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #fff0f5);
+      overflow-x: hidden;
     }
+
+    .container {
+      max-width: 720px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+
     .card {
       background: white;
-      padding: 30px;
-      border-radius: 16px;
-      max-width: 400px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      padding: 24px 18px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      margin-bottom: 24px;
+      animation: pop 0.6s ease;
+    }
+
+    h1 {
+      color: #ff4d88;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.7;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .photos img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .heart {
+      position: fixed;
+      color: #ff4d88;
+      animation: float 6s linear infinite;
+      bottom: -20px;
+      font-size: 20px;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #777;
+      margin-top: 12px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4d88;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
     }
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <h2>Happy Birthday, Misu ❤️</h2>
-    <p>
-      Since 2023, you’ve made my life crazier, happier, and honestly… way more beautiful.<br><br>
-      I still don’t know how you make those funny faces and convince me to agree to everything — your superpower 😌<br><br>
-      After all the happiness and fights we’ve shared, thank you for being my comfort.<br><br>
-      I’m lucky to have you.
-    </p>
+
+  <!-- Background Music -->
+  <audio id="bgm" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+
+    <div class="card">
+      <h1>Happy Birthday, Misu ❤️</h1>
+
+      <p>
+        Your birthday is about to end, but I didn’t want this day to finish without telling you something important:
+        you are the most beautifully crazy thing that ever happened to my life.
+      </p>
+
+      <p>
+        Since 2023, you’ve turned my normal days into mini festivals.  
+        Some days you make me laugh till my stomach hurts.  
+        Some days you make those special faces and I magically agree to everything.  
+        I still don’t know how you do that, but fine… you win 😌
+      </p>
+
+      <p>
+        We’ve fought, we’ve been dramatic, we’ve had mood swings and silent treatments.  
+        But after every fight, you somehow become my comfort again.  
+        No matter how messy things get, you still feel like home to me.
+      </p>
+
+      <p>
+        Thank you for being annoying in the cutest way,  
+        dumb in the most lovable way,  
+        and for loving me even when I don’t deserve it.
+      </p>
+
+      <p>
+        Happy Birthday once again, Misu.  
+        Stay the same beautiful mess I fell for.  
+        This guy is yours… unfortunately for him 😌❤️
+      </p>
+
+      <div class="footer">
+        — From the guy who always agrees because of your faces 😄
+      </div>
+
+      <button onclick="playMusic()">Play Music 🎵</button>
+    </div>
+
+    <div class="card">
+      <h2>Our Moments 📸</h2>
+      <div class="photos">
+        <img src="your-photo-1.jpg" />
+        <img src="your-photo-2.jpg" />
+        <img src="your-photo-3.jpg" />
+      </div>
+    </div>
+
   </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 10 + 14 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 400);
+
+    function playMusic() {
+      document.getElementById("bgm").play();
+    }
+  </script>
+
 </body>
 </html>
